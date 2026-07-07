@@ -1,21 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600&family=Caveat:wght@500;600&display=swap");
 
 :root {
-  --bg: #faf9f6;
-  --ink: #1f2430;
-  --muted: #6b7280;
-  --accent: #274690;
-  --accent-soft: #e8edf7;
-  --card: #ffffff;
-  --border: #e7e3da;
+  --bg: #fdf6ee;
+  --ink: #43302b;
+  --muted: #9c8577;
+  --accent: #c65f3f;
+  --accent-dark: #a34a2e;
+  --rose: #d98e8e;
+  --sage: #8fae8b;
+  --gold: #d9a441;
+  --card: #fffdf9;
+  --border: #eaddd0;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   background: var(--bg);
+  background-image:
+    radial-gradient(circle at 90% 8%, rgba(217, 164, 65, 0.12) 0, transparent 30%),
+    radial-gradient(circle at 8% 90%, rgba(217, 142, 142, 0.12) 0, transparent 30%);
   color: var(--ink);
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
 }
@@ -24,51 +30,55 @@ body {
 
 .brand {
   text-align: center;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent);
   margin-bottom: 2.5rem;
 }
 
 .hero { text-align: center; margin-bottom: 3.5rem; }
 
 .hero h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  font-size: clamp(2.4rem, 6vw, 3.6rem);
-  line-height: 1.15;
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  line-height: 1.12;
   margin-bottom: 1rem;
 }
 
 .hero h1 em { font-style: italic; color: var(--accent); }
 
-.hero p { color: var(--muted); max-width: 34rem; margin: 0 auto; }
+.hero p { color: var(--muted); max-width: 34rem; margin: 0 auto; font-size: 1.05rem; }
 
 .divider {
-  width: 48px; height: 1px; background: var(--accent);
-  margin: 1.5rem auto; opacity: 0.5;
+  width: auto; height: auto; background: none;
+  margin: 1.4rem auto;
+  color: var(--gold);
+  letter-spacing: 0.6em;
 }
+.divider::after { content: "✿ ✿ ✿"; font-size: 0.9rem; }
 
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 18px;
   padding: 2rem;
   margin-bottom: 3rem;
-  box-shadow: 0 1px 3px rgba(31, 36, 48, 0.04);
+  box-shadow: 0 8px 30px rgba(67, 48, 43, 0.07);
 }
 
-.card h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.5rem;
-  font-weight: 600;
+.card h2, .wishes h2 {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: 1.6rem;
   margin-bottom: 1.25rem;
 }
 
 label {
   display: block;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--muted);
   margin-bottom: 0.35rem;
@@ -80,13 +90,17 @@ input, textarea {
   color: var(--ink);
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  padding: 0.75rem 0.95rem;
   margin-bottom: 1.1rem;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(198, 95, 63, 0.12);
+}
 
 textarea { resize: vertical; min-height: 110px; }
 
@@ -96,51 +110,69 @@ button {
   color: #fff;
   background: var(--accent);
   border: none;
-  border-radius: 8px;
-  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  padding: 0.75rem 1.9rem;
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: background 0.15s, transform 0.15s;
 }
 
-button:hover { opacity: 0.9; }
-button:disabled { opacity: 0.5; cursor: default; }
+button:hover { background: var(--accent-dark); transform: translateY(-1px); }
+button:active { transform: translateY(0); }
+button:disabled { opacity: 0.5; cursor: default; transform: none; }
 
-.notice { font-size: 0.85rem; margin-top: 0.5rem; }
-.notice.ok { color: #2e7d4f; }
+.notice { font-size: 0.88rem; margin-top: 0.6rem; font-weight: 500; }
+.notice.ok { color: #4d7c4a; }
 .notice.err { color: #b3403a; }
 
-.wishes h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.7rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 1.75rem;
-}
+.wishes h2 { text-align: center; font-size: 1.9rem; margin-bottom: 1.75rem; }
 
 .wish {
   background: var(--card);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: 10px;
-  padding: 1.4rem 1.6rem;
-  margin-bottom: 1rem;
+  border-radius: 14px;
+  padding: 1.5rem 1.7rem;
+  margin-bottom: 1.1rem;
+  position: relative;
+  box-shadow: 0 4px 18px rgba(67, 48, 43, 0.06);
+  transition: transform 0.2s;
 }
+
+.wish:nth-child(odd) { transform: rotate(-0.4deg); }
+.wish:nth-child(even) { transform: rotate(0.4deg); }
+.wish:hover { transform: rotate(0deg) translateY(-2px); }
+
+.wish::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 14px; bottom: 14px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--rose);
+}
+.wish:nth-child(3n)::before { background: var(--sage); }
+.wish:nth-child(3n + 1)::before { background: var(--gold); }
 
 .wish p {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.2rem;
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  line-height: 1.35;
   white-space: pre-wrap;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
-.wish .who { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.04em; }
+.wish .who {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
 
 .empty { text-align: center; color: var(--muted); font-style: italic; }
 
 footer {
   text-align: center;
   margin-top: 4rem;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: var(--muted);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
