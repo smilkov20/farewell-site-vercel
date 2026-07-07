@@ -1,16 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600&family=Caveat:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@500;600&family=Nunito:wght@400;600;700&display=swap");
 
 :root {
-  --bg: #fdf6ee;
-  --ink: #43302b;
-  --muted: #9c8577;
-  --accent: #c65f3f;
-  --accent-dark: #a34a2e;
-  --rose: #d98e8e;
-  --sage: #8fae8b;
-  --gold: #d9a441;
-  --card: #fffdf9;
-  --border: #eaddd0;
+  --bg: #fff8ef;
+  --ink: #3d3450;
+  --muted: #8d82a3;
+  --pink: #ff6b9d;
+  --purple: #9b5de5;
+  --yellow: #ffd166;
+  --teal: #06d6a0;
+  --blue: #4cc9f0;
+  --card: #ffffff;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,68 +17,95 @@
 body {
   background: var(--bg);
   background-image:
-    radial-gradient(circle at 90% 8%, rgba(217, 164, 65, 0.12) 0, transparent 30%),
-    radial-gradient(circle at 8% 90%, rgba(217, 142, 142, 0.12) 0, transparent 30%);
+    radial-gradient(circle at 12% 18%, rgba(255, 209, 102, 0.25) 0, transparent 22%),
+    radial-gradient(circle at 88% 12%, rgba(255, 107, 157, 0.18) 0, transparent 25%),
+    radial-gradient(circle at 80% 85%, rgba(76, 201, 240, 0.18) 0, transparent 25%),
+    radial-gradient(circle at 15% 80%, rgba(6, 214, 160, 0.15) 0, transparent 22%);
   color: var(--ink);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: "Nunito", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
 }
 
-.wrap { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
 
 .brand {
   text-align: center;
-  font-size: 0.8rem;
+  font-family: "Fredoka", sans-serif;
   font-weight: 600;
-  letter-spacing: 0.32em;
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--purple);
   margin-bottom: 2.5rem;
 }
 
 .hero { text-align: center; margin-bottom: 3.5rem; }
 
 .hero h1 {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
-  font-size: clamp(2.6rem, 7vw, 4rem);
-  line-height: 1.12;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 7vw, 3.8rem);
+  line-height: 1.15;
   margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.hero h1 em { font-style: italic; color: var(--accent); }
-
-.hero p { color: var(--muted); max-width: 34rem; margin: 0 auto; font-size: 1.05rem; }
-
-.divider {
-  width: auto; height: auto; background: none;
-  margin: 1.4rem auto;
-  color: var(--gold);
-  letter-spacing: 0.6em;
+.hero h1::before { content: "🎉 "; }
+.hero h1::after { content: " 🎈"; }
+.hero h1::before, .hero h1::after {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: initial;
+  -webkit-text-fill-color: initial;
+  display: inline-block;
+  animation: bounce 2.2s ease-in-out infinite;
 }
-.divider::after { content: "✿ ✿ ✿"; font-size: 0.9rem; }
+.hero h1::after { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-10px) rotate(8deg); }
+}
+
+.hero h1 em { font-style: normal; }
+
+.hero p { color: var(--muted); max-width: 34rem; margin: 0 auto; font-weight: 600; }
+
+.divider { height: auto; width: auto; background: none; margin: 1.2rem auto; }
+.divider::after {
+  content: "🌸 ✨ 💜 ✨ 🌸";
+  font-size: 1.1rem;
+  letter-spacing: 0.4em;
+}
 
 .card {
   background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
+  border: 3px solid var(--purple);
+  border-radius: 24px;
   padding: 2rem;
   margin-bottom: 3rem;
-  box-shadow: 0 8px 30px rgba(67, 48, 43, 0.07);
+  box-shadow: 6px 6px 0 rgba(155, 93, 229, 0.25);
 }
 
 .card h2, .wishes h2 {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
   font-size: 1.6rem;
   margin-bottom: 1.25rem;
+  color: var(--purple);
 }
+
+.card h2::before { content: "💌 "; }
 
 label {
   display: block;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--muted);
   margin-bottom: 0.35rem;
 }
@@ -87,92 +113,95 @@ label {
 input, textarea {
   width: 100%;
   font: inherit;
+  font-weight: 600;
   color: var(--ink);
   background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 0.75rem 0.95rem;
+  border: 2px solid #e8ddf5;
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
   margin-bottom: 1.1rem;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s, transform 0.15s;
 }
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(198, 95, 63, 0.12);
+  border-color: var(--pink);
+  transform: scale(1.01);
 }
 
 textarea { resize: vertical; min-height: 110px; }
 
 button {
-  font: inherit;
-  font-weight: 500;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
   color: #fff;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--pink), var(--purple));
   border: none;
   border-radius: 999px;
-  padding: 0.75rem 1.9rem;
+  padding: 0.75rem 2rem;
   cursor: pointer;
-  transition: background 0.15s, transform 0.15s;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 14px rgba(255, 107, 157, 0.4);
 }
 
-button:hover { background: var(--accent-dark); transform: translateY(-1px); }
-button:active { transform: translateY(0); }
+button:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 6px 18px rgba(255, 107, 157, 0.5); }
+button:active { transform: translateY(0) scale(0.98); }
 button:disabled { opacity: 0.5; cursor: default; transform: none; }
 
-.notice { font-size: 0.88rem; margin-top: 0.6rem; font-weight: 500; }
-.notice.ok { color: #4d7c4a; }
-.notice.err { color: #b3403a; }
+.notice { font-size: 0.9rem; margin-top: 0.6rem; font-weight: 700; }
+.notice.ok { color: #06a87e; }
+.notice.ok::before { content: "🎊 "; }
+.notice.err { color: #e5484d; }
+.notice.err::before { content: "😅 "; }
 
-.wishes h2 { text-align: center; font-size: 1.9rem; margin-bottom: 1.75rem; }
+.wishes h2 { text-align: center; margin-bottom: 1.75rem; font-size: 1.8rem; }
+.wishes h2::before { content: "💖 "; }
+.wishes h2::after { content: " 💖"; }
 
 .wish {
   background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.5rem 1.7rem;
-  margin-bottom: 1.1rem;
-  position: relative;
-  box-shadow: 0 4px 18px rgba(67, 48, 43, 0.06);
+  border: 3px solid var(--yellow);
+  border-radius: 20px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  transform: rotate(-1deg);
   transition: transform 0.2s;
+  box-shadow: 5px 5px 0 rgba(255, 209, 102, 0.35);
 }
 
-.wish:nth-child(odd) { transform: rotate(-0.4deg); }
-.wish:nth-child(even) { transform: rotate(0.4deg); }
-.wish:hover { transform: rotate(0deg) translateY(-2px); }
+.wish:nth-child(3n) { border-color: var(--teal); box-shadow: 5px 5px 0 rgba(6, 214, 160, 0.3); transform: rotate(1.2deg); }
+.wish:nth-child(3n + 1) { border-color: var(--pink); box-shadow: 5px 5px 0 rgba(255, 107, 157, 0.3); transform: rotate(-1.2deg); }
+.wish:nth-child(3n + 2) { border-color: var(--blue); box-shadow: 5px 5px 0 rgba(76, 201, 240, 0.3); transform: rotate(0.8deg); }
 
-.wish::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 14px; bottom: 14px;
-  width: 3px;
-  border-radius: 3px;
-  background: var(--rose);
-}
-.wish:nth-child(3n)::before { background: var(--sage); }
-.wish:nth-child(3n + 1)::before { background: var(--gold); }
+.wish:hover { transform: rotate(0deg) scale(1.02); }
 
 .wish p {
   font-family: "Caveat", cursive;
-  font-size: 1.5rem;
-  line-height: 1.35;
+  font-size: 1.55rem;
+  line-height: 1.4;
   white-space: pre-wrap;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .wish .who {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.05em;
+  font-family: "Fredoka", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--purple);
 }
 
-.empty { text-align: center; color: var(--muted); font-style: italic; }
+.empty { text-align: center; color: var(--muted); font-weight: 600; }
+.empty::before { content: "🕊️ "; }
 
 footer {
   text-align: center;
   margin-top: 4rem;
-  font-size: 0.85rem;
+  font-family: "Fredoka", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--muted);
-  letter-spacing: 0.06em;
 }
+
+footer::before { content: "💜 "; }
+footer::after { content: " 💜"; }
