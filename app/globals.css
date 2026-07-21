@@ -90,6 +90,7 @@ body {
   padding: 2rem;
   margin-bottom: 3rem;
   box-shadow: 6px 6px 0 rgba(155, 93, 229, 0.25);
+  display: none;
 }
 
 .card h2, .wishes h2 {
